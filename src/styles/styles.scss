@@ -1,0 +1,718 @@
+
+@import "reset";
+@import "breakpoints";
+@import "navmix";
+@import "var";
+
+
+/* - - - */
+
+/* 0 */
+
+/* GENERAL */
+
+/* - - - */
+
+/* Webpage View */
+
+.Viewport {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: $face;
+  font-family: $default-fonts;
+  color: $primarytxt;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.Mainpage {
+  padding: 5% 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.Maintext {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    padding: .5rem 1rem;
+    max-width: 650px;
+  }
+
+  .ListWrap {
+    margin: 5%;
+    text-align: left;
+  
+    .ListDash {
+      list-style: disc;
+      list-style-position: inside;
+    }
+  }
+}
+
+/* Navigation */
+
+.Nav, .Spicenav {
+  display: flex;
+  max-width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: $default-fonts;
+  font-size: .8rem;
+  z-index: 99;
+  font-weight: 100;
+  background: transparent;
+  @include media("<=cozy"){
+    position: fixed;
+    width: 100%;
+  }
+}
+
+.Nav {
+  background: $face;
+  height: $navheight;
+}
+
+.Spicenav {
+  background: $symain;
+  height: $synavheight;
+}
+
+.navbar-logo {
+  color: #fff;
+  display: flex;
+  position: absolute;
+  justify-content: space;
+  align-items: center;
+  flex-direction: row;
+  margin-left: 0;
+  cursor: pointer;
+  font-size: 1rem;
+  top: 0;
+  left: 0;
+  transform: translate(25%, 10px);
+}
+
+#logotext {
+  display: none;
+
+  @include media("<=cozy"){
+    display: block;
+    margin-left: 10px;
+  }
+}
+
+.nav-menu {
+  @include menu
+}
+
+.nav-links {
+  @include navlink
+}
+
+#alt {
+  @include altbtn
+}
+
+#reg {
+  @include regbtn
+}
+
+.menu-icon {
+  display: none;
+
+  @include media ("<=cozy") {
+    width: 2rem;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: $primarytxt;
+  }
+}
+
+/* Screen Responsiveness */
+
+@media screen and (max-width: 1005px) {
+  .Viewport {
+    padding-top: $navheight;
+  }
+
+  .NavbarItems {
+    position: relative;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    top: $navheight;
+    justify-content: space-evenly;
+    width: 100%;
+    height: calc(100vh - #{$navheight});
+    position: fixed;
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+
+  .nav-menu.active {
+    background: $face;
+    left: 0;
+    opacity: 1;
+    overflow: hidden;
+    transition: all 0.5s ease;
+  }
+
+  .navbar-logo {
+    top: 0;
+    left: 0;
+    transform: translate(10%, 10px);
+  }
+
+  #logotext {
+    margin-left: 10px;
+    display: block;
+  }
+
+  .fa-times, .fa-bars {
+    font-size: 2rem;
+  }
+}
+
+
+/* Header */
+
+.Header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  font-family: $default-fonts;
+  color: $primarytxt;
+  margin-top: 5vh;
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: .5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    padding: 1rem 0;
+  }
+
+  @include media ("<=cozy") {
+    margin-top: 2vh;
+  }
+}
+
+.underline {
+  width: 100px;
+  margin-top: 1rem;
+  border-bottom: solid 5px;
+  border-color: $primarytxt;
+}
+
+.nunderline {
+  display: none;
+}
+
+/* Footer */
+
+.Footer {
+  min-height: auto;
+  width: 100%;
+  background: $face;
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  color: white;
+  font-family: $default-fonts;
+  align-items: center;
+  justify-content: center;
+}
+
+#atfoot {
+  background-color: $face;
+}
+
+#syfoot {
+  background-color: $syaccent;
+  color:black;
+}
+
+.Details {
+  width: 70vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  @include media("<=cozy"){
+    flex-direction: column;
+  }
+}
+
+.Ftrdetlogo {
+  height: 150px;
+}
+
+.Ftrdetitem {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  align-items: flex-start;
+  min-height: 200px;
+
+  p {
+    margin-top: 15px;
+  }
+
+  a {
+    text-decoration: none;
+    color: $atgrey;
+  }
+
+  h1 {
+    color: $atgrey;
+  }
+
+  @include media("<=cozy"){
+    min-height: auto;
+
+    h1 {
+      text-align: center;
+    }
+  }
+}
+
+.Subform {
+  clear:left;
+  font:14px Helvetica,Arial,sans-serif;
+  width:100%;
+
+  .clear {
+    padding: .2rem 0 .5rem 0;
+    
+    @include media("<=cozy"){
+      padding: 0;
+    }
+  }
+}
+
+#mc_embed_signup_scroll {
+  padding: 5rem;
+}
+
+.Botmas {
+  position:absolute;
+  left:-5000px;
+}
+
+.Ender {
+  height: auto;
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+  padding: 20px 0;
+  justify-content: center;
+  font-size: .8rem;
+  font-weight: 100;
+}
+
+#atfootend {
+  background-color: $heel;
+}
+
+#syfootend {
+  background-color: $syaccalt;
+}
+
+/* - - - */
+
+/* 1 */
+
+/* HOME */
+
+/* - - - */
+
+.Paraview {
+  width: 100%;
+  background-color: $face;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.HomeLanding {
+  height:  100vh;
+  background-color: red;
+  overflow: hidden;
+}
+
+.HomeServBoxes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-height: 50vh;
+
+  @include media ("<=cozy") {
+    flex-direction: column;
+    min-height: 112vh;
+  }
+}
+
+.SmallLink {
+  text-align: center;
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    font-size: 1rem;
+    line-height: 1.25;
+    padding: .2rem;
+    font-weight: 100;
+  }
+}
+
+.FullLink {
+  text-align: left;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+
+  p {
+    font-size: 1.25rem;
+    line-height: 1.25;
+    padding: .2rem;
+    font-weight: 100;
+  }
+}
+
+.ServLinkbox, .SpiceLinkbox {
+  padding: 1rem;
+  font-family: $default-fonts;
+  font-weight: 100;
+  color: $primarytxt;
+  text-align: center;
+
+  h1 {
+    font-size: 2rem;
+    padding: 1rem 0;
+  }
+}
+
+.SpiceLinkbox {
+  background-color: rgba(0, 0, 0, 0.5);
+  background-size: cover;
+  min-height: 100vh;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.SpiceHomeContainer {
+  background-image: url("https://atticus.property/wp-content/uploads/2021/02/Spice-Yard109.jpg");
+  background-size: cover;
+}
+
+.Norm {
+  background-color: $atgrey;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border: hidden;
+  border-radius: 25px;
+  min-width: 60px;
+
+  a {
+    text-decoration: none;
+    color: $primarytxt;
+  }
+}
+
+.Alt {
+  background-color: $primarytxt;
+  padding: 1rem;
+  margin: 2rem 0;
+  border: hidden;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  max-width: 150px;
+
+  a {
+    text-decoration: none;
+    color: $face;
+  }
+}
+
+.Icon {
+  font-size: 4rem;
+  margin-top: 1rem;
+}
+
+.HomeAbout {
+  padding: 5rem;
+  color: $primarytxt;
+  font-family: $default-fonts;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  h1 {
+    font-size: 2rem;
+    padding: 1rem 0;
+  }
+
+  p {
+    font-size: 1.5rem;
+    padding: 1rem 0;
+  }
+}
+
+.Famphoto {
+  background-image: url("../../public/img/FamPhoto.jpg");
+  background-size: cover;
+  background-position: center;
+  color: black;
+  background-attachment: no-repeat;
+  min-height: 55vh;
+  max-width: 600px;
+
+  @include media ("<=cozy") {
+    min-height: 50vh;
+    max-width: 450px;
+  }
+}
+
+.HomeAboutton {
+  border: solid 2px;
+  width: 120px;
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem 0;
+  cursor: pointer;
+  background-color: hsl(hue($altclr), 20%, 40%);
+
+  a {
+  text-decoration: none;
+  color: $primarytxt;
+  }
+
+  &:hover {
+    background-color: $primarytxt;
+
+    a {
+      color: $face;
+      }
+  }
+}
+
+.HomeFoot {
+  width: 100%;
+  position: relative;
+  bottom: 0;
+}
+
+/* - - - */
+
+/* 2 */
+
+/* SPICE YARD */
+
+/* - - - */
+
+
+
+
+/* - - - */
+
+/* 3 */
+
+/* ACQUISITIONS / MANAGEMENT */
+
+/* - - - */
+
+.Picwrap {
+  max-width: 1200px;
+  padding: 5rem 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+  a {
+    text-decoration: none;
+    color: $primarytxt;
+    }
+}
+
+.Picbox {
+  margin: 2.5%;
+  max-width: 520px;
+  font-size: 1.5rem;
+
+  p {
+    margin-top: 1rem;
+  }
+}
+
+/* - - - */
+
+/* 4 */
+
+/* ABOUT */
+
+/* - - - */
+
+.Portrainer {
+  display: flex;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  max-width: 1200px;
+}
+
+.Portraitbox {
+  max-width: 250px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+
+  h1 {
+    font-size: 1.6rem;
+    padding: 1rem;
+  }
+}
+
+.Abounderline {
+  width: 100px;
+  margin-top: 1rem;
+  border-bottom: solid 2px;
+  border-color: $primarytxt;
+}
+
+/* - - - */
+
+/* 5 */
+
+/* CONTACT */
+
+/* - - - */
+
+.Contact {
+  max-width: 1200px;
+  min-width: 80%;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @include media ("<=cozy") {
+    flex-direction: column;
+    min-width: 90%;
+    margin: 0 1rem;
+  }
+}
+
+.Map {
+  margin: .5rem 0 1rem 0;
+  width: 50%;
+
+
+  @include media ("<=cozy") {
+    width: 100%;
+  }
+}
+
+.Form {
+  width: 45%;
+  margin: 0 2.5%;
+
+  form {
+    margin: 0;
+    padding: 0;
+    max-width: 650px;
+    min-width: 50%;
+    height: 450px;
+    font-size: 1rem;
+    line-height: 24px;
+    text-decoration: none;
+
+    span {
+      margin: .5rem 0 .25rem 0;
+      display: block;
+    }
+
+    input {
+      display: block;
+      height: 25px;
+    }
+  
+    textarea#feedback {
+      height: 150px;
+      display: block;
+    }
+  
+    input, input#button, textarea#feedback {
+      background-color: black;
+      color: white;
+      width: 99%;
+      border: none;
+    }
+  
+    input#button {
+      background: $atgrey;
+      width: 100%;
+      margin-top: 1rem;
+      color: $primarytxt;
+      height: 45px;
+      border-radius: 25px;
+      border: hidden;
+      font-size: 1.2rem;
+    
+      &:hover {
+        background: $primarytxt;
+        color: $face;
+        cursor: pointer;
+      }
+    }
+  
+    textarea:focus, input:focus {
+      border: 1px solid #09C;
+    }
+
+    @include media ("<=cozy") {
+      min-width: 100%;
+      margin: 4rem 0 1rem 0;
+    }
+  }
+
+  @include media ("<=cozy") {
+    width: 95%;
+  }
+}

@@ -1,0 +1,73 @@
+/* Nav */
+
+@mixin nav-radius ($r) {
+  border-radius: ($r);
+  -webkit-border-radius: ($r);
+  -ms-border-redius: ($r);
+}
+
+@mixin navlink {
+  @include nav-radius (2px);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include media("<=cozy"){
+    text-align: center;
+    padding: .75rem;
+    margin: .05rem auto;
+    width: 90%;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+}
+
+@mixin regbtn {
+  color: $textclr;
+  padding: .75rem .85rem;
+
+  &:hover {
+    color: $primarytxt;
+    background-color: darken($face, 5%);
+    animation: run ease .8s;
+    transition: 0.8s ease-out;
+  }
+
+  @include media("<=cozy"){
+    padding: none;
+    margin: none;
+  }
+}
+
+@mixin altbtn {
+  @include nav-radius (25px);
+  color: $primarytxt;
+  background-color: $altclr;
+  padding: 1rem;
+  marfin-left: 2.5rem;
+
+  &:hover {
+    background-color: hsl(hue($altclr), 20%, 40%);
+    color: $face;
+    transition: 0.2s ease-out;
+  }
+
+  @include media("<=cozy"){
+    @include nav-radius (0);
+    padding: none;
+    margin: none;
+  }
+}
+
+@mixin menu {
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+  grid-gap: 2.5px;
+  list-style: none;
+  text-align: center;
+  font-weight: 100;
+  width: 70vw;
+  justify-content: right;
+  margin-right: 2rem;
+}
